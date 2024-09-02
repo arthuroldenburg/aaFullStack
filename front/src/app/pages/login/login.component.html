@@ -1,0 +1,14 @@
+<form action="" #loginForm="ngForm">
+  <div>
+    login:
+  </div>
+  <input type="string" name="login" placeholder="Login" [(ngModel)]="login.login" required>
+  <br>
+  <div>
+    password:
+  </div>
+  <input type="password" name="password" placeholder="Passowrd" [(ngModel)]="login.password" required>
+  <br>
+  <button type="submit" [disabled]="!loginForm.form.valid" (click)="onSubmit()">enter</button>
+  <br>
+</form>

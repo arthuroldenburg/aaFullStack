@@ -1,0 +1,9 @@
+<form action="" #registerPForm="ngForm">
+  <p>name:</p>
+  <input type="string" name="name" placeholder="name" [(ngModel)]="patient.name" required>
+  <p>consult number:</p>
+  <input type="number" name="consultNumber" placeholder="consultNumber" [(ngModel)]="patient.consultNumber" required>
+  <br> <br>
+  <button type="submit" (click)="onSubmit()" [disabled]="!registerPForm.form.valid">enter</button>
+  <br>
+</form>

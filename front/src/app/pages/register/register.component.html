@@ -1,0 +1,11 @@
+<form action="" #registerForm="ngForm">
+  <p>login:</p>
+  <input type="string" name="login" placeholder="Login" [(ngModel)]="body.login" required>
+  <p>password:</p>
+  <input type="password" name="password" placeholder="Passowrd" [(ngModel)]="body.password" required>
+  <p>role:</p>
+  <input type="string" name="role" placeholder="Role" [(ngModel)]="body.role" required>
+  <br> <br>
+  <button type="submit" (click)="onSubmit()" [disabled]="!registerForm.form.valid">enter</button>
+  <br>
+</form>
