@@ -36,7 +36,7 @@ public class AuthController {
     private SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
 
     @PostMapping("/login")
-    public ResponseEntity<Object> login(@RequestBody @Valid AuthDTO data) {
+    public ResponseEntity<LoginResponseDTO> login(@RequestBody @Valid AuthDTO data) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
         var token = tokenService.generateToken((User) auth.getPrincipal());
@@ -44,7 +44,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody @Valid RegisterDTO data) {
+    public ResponseEntity<Object> register(@RequestBody @Valid RegisterDTO data) {
         if (this.userRepository.findByLogin(data.login()) != null) return ResponseEntity.badRequest().build();
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
         this.userRepository.save(new User(data.login(), encryptedPassword, data.role()));

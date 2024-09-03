@@ -18,4 +18,8 @@ export class HomeComponent {
   getAll():void {
     this.hs.getAll().subscribe((res) => this.patients = res)
   }
+
+  logout() {
+      this.hs.logout('nice');
+  }
 }

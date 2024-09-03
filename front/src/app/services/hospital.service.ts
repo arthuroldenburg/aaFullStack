@@ -28,4 +28,7 @@ export class HospitalService {
   registerPatient(body: Patient): Observable<any> {
     return this.httpClient.post(`${this.url}/patients`, body)
   }
+  logout(body: any):Observable<any> {
+    return this.httpClient.post<any>(`${this.url}/auth/logout`, body);
+  }
 }

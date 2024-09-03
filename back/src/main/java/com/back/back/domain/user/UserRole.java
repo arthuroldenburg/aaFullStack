@@ -3,7 +3,11 @@ package com.back.back.domain.user;
 public enum UserRole {
 
     ADMIN("admin"),
+    MEDIC("medic"),
+    RECEPTIONIST("receptionist"),
     USER("user");
+
+
 
     private String role;
 
